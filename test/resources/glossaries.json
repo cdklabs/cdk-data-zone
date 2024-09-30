@@ -1,0 +1,148 @@
+[
+    {
+        "name": "Data Classification",
+        "description": "Classify the type of data based on confidentiality",
+        "terms": [
+            {
+                "name": "Confidential",
+                "shortDescription": "Confidential",
+                "longDescription": "Confidential Glossary Term"
+            },
+            {
+                "name": "Internal",
+                "shortDescription": "Internal",
+                "longDescription": "Internal Glossary Term"
+            },
+            {
+                "name": "Public",
+                "shortDescription": "Public",
+                "longDescription": "Public Glossary Term"
+            }
+        ]
+    },
+    {
+        "name": "Data Product Category",
+        "description": "Category of data product based on plant business unit",
+        "terms": [
+            {
+                "name": "Shopfloor data",
+                "shortDescription": "Shopfloor",
+                "longDescription": "Shopfloor data Glossary Term"
+            },
+            {
+                "name": "Production data",
+                "shortDescription": "Production",
+                "longDescription": "Production data Glossary Term"
+            }
+        ]
+    },
+    {
+        "name": "Business Domain",
+        "description": "Business unit name",
+        "terms": [
+            {
+                "name": "Production",
+                "shortDescription": "Production",
+                "longDescription": "Production Glossary Term"
+            },
+            {
+                "name": "Quality",
+                "shortDescription": "Quality",
+                "longDescription": "Quality Glossary Term"
+            },
+            {
+                "name": "Logistics",
+                "shortDescription": "Logistics",
+                "longDescription": "Logistics Glossary Term"
+            },
+            {
+                "name": "Construction and infrastructure",
+                "shortDescription": "ConstructionInfrastructure",
+                "longDescription": "Construction and infrastructure Glossary Term"
+            },
+            {
+                "name": "Industrial Engineering",
+                "shortDescription": "IndustrialEngineering",
+                "longDescription": "Industrial Engineering Glossary Term"
+            },
+            {
+                "name": "HR",
+                "shortDescription": "HR",
+                "longDescription": "HR Glossary Term"
+            },
+            {
+                "name": "Finance and Purchasing",
+                "shortDescription": "FinancePurchasing ",
+                "longDescription": "Finance and Purchasing Glossary Term"
+            },
+            {
+                "name": "IT",
+                "shortDescription": "IT",
+                "longDescription": "IT Glossary Term"
+            },
+            {
+                "name": "Planning",
+                "shortDescription": "Planning",
+                "longDescription": "Planning Glossary Term"
+            }
+        ]
+    },
+    {
+        "name": "Update Frequency",
+        "description": "Update Frequency of data",
+        "terms": [
+            {
+                "name": "Every minute",
+                "shortDescription": "EveryMinute",
+                "longDescription": "Every minute Glossary Term"
+            },
+            {
+                "name": "Every hour",
+                "shortDescription": "EveryHour",
+                "longDescription": "Every hour Glossary Term"
+            },
+            {
+                "name": "Every day",
+                "shortDescription": "EveryDay",
+                "longDescription": "Every day Glossary Term"
+            },
+            {
+                "name": "Every week",
+                "shortDescription": "EveryWeek",
+                "longDescription": "Every week Glossary Term"
+            }
+        ]
+    },
+    {
+        "name": "Data Product Type",
+        "description": "Type of data based on its origin and usage purpose",
+        "terms": [
+            {
+                "name": "Source based data",
+                "shortDescription": "SourceBasedData",
+                "longDescription": "Source based data Glossary Term"
+            },
+            {
+                "name": "Consumer based data",
+                "shortDescription": "ConsumerBasedData",
+                "longDescription": "Consumer based data Glossary Term"
+            }
+        ]
+    },
+    {
+        "name": "PII Data",
+        "description": "If data source contains PII attributes",
+        "terms": [
+            {
+                "name": "Yes",
+                "shortDescription": "Yes",
+                "longDescription": "Yes Glossary Term"
+            },
+            {
+                "name": "No",
+                "shortDescription": "No",
+                "longDescription": "No Glossary Term"
+            }
+        ]
+    }
+]
