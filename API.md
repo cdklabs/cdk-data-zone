@@ -1441,9 +1441,9 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-data-zone.Domain.property.portalUrl">portalUrl</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.Domain.property.status">status</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.Domain.property.domainExecutionRole">domainExecutionRole</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
+| <code><a href="#cdk-data-zone.Domain.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | *No description.* |
 | <code><a href="#cdk-data-zone.Domain.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.Domain.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-data-zone.Domain.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | *No description.* |
 
 ---
 
@@ -1574,6 +1574,16 @@ public readonly domainExecutionRole: Role;
 
 ---
 
+##### `encryptionKey`<sup>Required</sup> <a name="encryptionKey" id="cdk-data-zone.Domain.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+---
+
 ##### `name`<sup>Required</sup> <a name="name" id="cdk-data-zone.Domain.property.name"></a>
 
 ```typescript
@@ -1591,16 +1601,6 @@ public readonly description: string;
 ```
 
 - *Type:* string
-
----
-
-##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-data-zone.Domain.property.encryptionKey"></a>
-
-```typescript
-public readonly encryptionKey: IKey;
-```
-
-- *Type:* aws-cdk-lib.aws_kms.IKey
 
 ---
 

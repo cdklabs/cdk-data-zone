@@ -324,6 +324,9 @@ export class Environment extends EnvironmentBase {
       name: props.name,
       description: props.description,
       environmentProfileIdentifier: props.environmentProfile.environmentProfileId,
+      environmentAccountIdentifier: props.environmentProfile.awsAccountId,
+      environmentAccountRegion: props.environmentProfile.awsAccountRegion,
+      environmentRoleArn: props.environmentRole?.roleArn,
       glossaryTerms: props.glossaryTerms,
       userParameters: props.userParameters,
     });

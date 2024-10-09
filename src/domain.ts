@@ -189,7 +189,7 @@ export class Domain extends DomainBase {
 
   readonly name: string;
   readonly description?: string;
-  readonly encryptionKey?: kms.IKey;
+  readonly encryptionKey: kms.IKey;
   readonly domainExecutionRole: iam.Role;
 
   private _singleSignOn?: SingleSignOn;
@@ -208,9 +208,38 @@ export class Domain extends DomainBase {
 
     this.description = props.description;
     this.name = props.name;
-    this.encryptionKey = props.encryptionKey;
+    this.encryptionKey = props.encryptionKey ?? this.createEncryptionKey();
     this.domainExecutionRole = props.domainExecutionRole ?? this.createDomainExecutionRole();
     this._singleSignOn = props.singleSignOn;
+
+    this.encryptionKey.addToResourcePolicy(
+      new iam.PolicyStatement({
+        actions: ['kms:*'],
+        principals: [new iam.AccountRootPrincipal()],
+        resources: ['*'],
+      }),
+    );
+    this.encryptionKey.addToResourcePolicy(
+      new iam.PolicyStatement({
+        actions: [
+          'kms:Encrypt',
+          'kms:Decrypt',
+          'kms:ReEncrypt*',
+          'kms:GenerateDataKey*',
+          'kms:DescribeKey',
+          'kms:CreateGrant',
+          'kms:ListGrants',
+          'kms:RevokeGrant',
+        ],
+        principals: [new iam.AnyPrincipal()],
+        resources: ['*'],
+        conditions: {
+          StringEquals: {
+            'kms:CallerAccount': cdk.Stack.of(this).account,
+          },
+        },
+      }),
+    );
 
     const resource = new datazone.CfnDomain(this, 'Resource', {
       name: this.name,
@@ -236,6 +265,14 @@ export class Domain extends DomainBase {
 
   addSingleSignOn(singleSignOn: SingleSignOn): void {
     this._singleSignOn = singleSignOn;
+  }
+
+  private createEncryptionKey() {
+    return new kms.Key(this, 'DomainKey', {
+      enableKeyRotation: true,
+      description: 'Datazone KMS Key',
+      alias: `${this.name}-datazone-key`,
+    });
   }
 
   private createDomainExecutionRole() {

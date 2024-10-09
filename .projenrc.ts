@@ -9,7 +9,7 @@ const project = new CdklabsConstructLibrary({
   description: 'AWS DataZone L2 Construct library',
   author: 'Amazon Web Services',
   authorAddress: 'gyalai@amazon.ch',
-  cdkVersion: '2.158.0',
+  cdkVersion: '2.160.0',
   constructsVersion: '10.0.46',
   defaultReleaseBranch: 'main',
   repositoryUrl: 'https://github.com/cdklabs/cdk-data-zone.git',
