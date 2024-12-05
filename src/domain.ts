@@ -23,7 +23,7 @@ export enum AssignmentType {
 }
 
 export interface SingleSignOn {
-  readonly type: SingleSignOnType;
+  readonly ssoType: SingleSignOnType;
 
   readonly userAssignment?: AssignmentType;
 }
@@ -327,7 +327,7 @@ export class Domain extends DomainBase {
         if (!this._singleSignOn) return undefined;
 
         return {
-          type: this._singleSignOn?.type ?? SingleSignOnType.IAM_IDC,
+          type: this._singleSignOn?.ssoType ?? SingleSignOnType.IAM_IDC,
           userAssignment: this._singleSignOn?.userAssignment ?? AssignmentType.AUTOMATIC,
         };
       },

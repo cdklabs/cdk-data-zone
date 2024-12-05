@@ -10,7 +10,7 @@
         ]
       }
     },
-    "postCreateCommand": "npx projen install",
+    "postCreateCommand": "npx -y projen install",
     "remoteUser": "superchain",
     "features": {
       "ghcr.io/devcontainers/features/docker-in-docker:2": {
