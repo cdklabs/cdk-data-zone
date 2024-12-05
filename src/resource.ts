@@ -117,7 +117,7 @@ export class Schedule {
 
 export interface IDataSourceConfiguration {
 
-  readonly type: string;
+  readonly filterType: string;
 
   readonly configuration: datazone.CfnDataSource.DataSourceConfigurationInputProperty;
 }

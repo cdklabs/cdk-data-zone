@@ -701,10 +701,10 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-data-zone.DataSource.property.project">project</a></code> | <code><a href="#cdk-data-zone.IProject">IProject</a></code> | The project ID included in the data source run activity. |
 | <code><a href="#cdk-data-zone.DataSource.property.status">status</a></code> | <code>string</code> | The status of the data source. |
 | <code><a href="#cdk-data-zone.DataSource.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-data-zone.DataSource.property.filterType">filterType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.publishOnImport">publishOnImport</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.recommendation">recommendation</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-data-zone.DataSource.property.type">type</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.description">description</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.schedule">schedule</a></code> | <code><a href="#cdk-data-zone.Schedule">Schedule</a></code> | *No description.* |
 
@@ -871,6 +871,16 @@ public readonly enabled: boolean;
 
 ---
 
+##### `filterType`<sup>Required</sup> <a name="filterType" id="cdk-data-zone.DataSource.property.filterType"></a>
+
+```typescript
+public readonly filterType: string;
+```
+
+- *Type:* string
+
+---
+
 ##### `name`<sup>Required</sup> <a name="name" id="cdk-data-zone.DataSource.property.name"></a>
 
 ```typescript
@@ -898,16 +908,6 @@ public readonly recommendation: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.DataSource.property.type"></a>
-
-```typescript
-public readonly type: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -6527,7 +6527,7 @@ const filterExpression: FilterExpression = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-data-zone.FilterExpression.property.expression">expression</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-data-zone.FilterExpression.property.type">type</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-data-zone.FilterExpression.property.filterType">filterType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -6541,10 +6541,10 @@ public readonly expression: string;
 
 ---
 
-##### `type`<sup>Optional</sup> <a name="type" id="cdk-data-zone.FilterExpression.property.type"></a>
+##### `filterType`<sup>Optional</sup> <a name="filterType" id="cdk-data-zone.FilterExpression.property.filterType"></a>
 
 ```typescript
-public readonly type: string;
+public readonly filterType: string;
 ```
 
 - *Type:* string
@@ -7251,7 +7251,7 @@ const redshiftOptions: RedshiftOptions = { ... }
 | <code><a href="#cdk-data-zone.RedshiftOptions.property.dataAccessRole">dataAccessRole</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
 | <code><a href="#cdk-data-zone.RedshiftOptions.property.credentials">credentials</a></code> | <code>aws-cdk-lib.aws_secretsmanager.Secret</code> | *No description.* |
 | <code><a href="#cdk-data-zone.RedshiftOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-data-zone.RedshiftOptions.property.type">type</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-data-zone.RedshiftOptions.property.redshiftType">redshiftType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -7295,10 +7295,10 @@ public readonly name: string;
 
 ---
 
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.RedshiftOptions.property.type"></a>
+##### `redshiftType`<sup>Required</sup> <a name="redshiftType" id="cdk-data-zone.RedshiftOptions.property.redshiftType"></a>
 
 ```typescript
-public readonly type: string;
+public readonly redshiftType: string;
 ```
 
 - *Type:* string
@@ -7319,15 +7319,15 @@ const singleSignOn: SingleSignOn = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-data-zone.SingleSignOn.property.type">type</a></code> | <code><a href="#cdk-data-zone.SingleSignOnType">SingleSignOnType</a></code> | *No description.* |
+| <code><a href="#cdk-data-zone.SingleSignOn.property.ssoType">ssoType</a></code> | <code><a href="#cdk-data-zone.SingleSignOnType">SingleSignOnType</a></code> | *No description.* |
 | <code><a href="#cdk-data-zone.SingleSignOn.property.userAssignment">userAssignment</a></code> | <code><a href="#cdk-data-zone.AssignmentType">AssignmentType</a></code> | *No description.* |
 
 ---
 
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.SingleSignOn.property.type"></a>
+##### `ssoType`<sup>Required</sup> <a name="ssoType" id="cdk-data-zone.SingleSignOn.property.ssoType"></a>
 
 ```typescript
-public readonly type: SingleSignOnType;
+public readonly ssoType: SingleSignOnType;
 ```
 
 - *Type:* <a href="#cdk-data-zone.SingleSignOnType">SingleSignOnType</a>
@@ -7492,7 +7492,7 @@ DataSourceConfigurationBase.fromRedshift(options: RedshiftOptions)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-data-zone.DataSourceConfigurationBase.property.configuration">configuration</a></code> | <code>aws-cdk-lib.aws_datazone.CfnDataSource.DataSourceConfigurationInputProperty</code> | *No description.* |
-| <code><a href="#cdk-data-zone.DataSourceConfigurationBase.property.type">type</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-data-zone.DataSourceConfigurationBase.property.filterType">filterType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -7506,10 +7506,10 @@ public readonly configuration: DataSourceConfigurationInputProperty;
 
 ---
 
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.DataSourceConfigurationBase.property.type"></a>
+##### `filterType`<sup>Required</sup> <a name="filterType" id="cdk-data-zone.DataSourceConfigurationBase.property.filterType"></a>
 
 ```typescript
-public readonly type: string;
+public readonly filterType: string;
 ```
 
 - *Type:* string
@@ -8001,7 +8001,7 @@ The status of the data source.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-data-zone.IDataSourceConfiguration.property.configuration">configuration</a></code> | <code>aws-cdk-lib.aws_datazone.CfnDataSource.DataSourceConfigurationInputProperty</code> | *No description.* |
-| <code><a href="#cdk-data-zone.IDataSourceConfiguration.property.type">type</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-data-zone.IDataSourceConfiguration.property.filterType">filterType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -8015,10 +8015,10 @@ public readonly configuration: DataSourceConfigurationInputProperty;
 
 ---
 
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.IDataSourceConfiguration.property.type"></a>
+##### `filterType`<sup>Required</sup> <a name="filterType" id="cdk-data-zone.IDataSourceConfiguration.property.filterType"></a>
 
 ```typescript
-public readonly type: string;
+public readonly filterType: string;
 ```
 
 - *Type:* string

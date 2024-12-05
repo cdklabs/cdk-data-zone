@@ -11,6 +11,7 @@ const project = new CdklabsConstructLibrary({
   authorAddress: 'gyalai@amazon.ch',
   cdkVersion: '2.160.0',
   constructsVersion: '10.0.46',
+  jsiiVersion: '~5.5',
   defaultReleaseBranch: 'main',
   repositoryUrl: 'https://github.com/cdklabs/cdk-data-zone.git',
   devDeps: [
@@ -19,6 +20,7 @@ const project = new CdklabsConstructLibrary({
     '@aws-cdk/integ-runner@^2.60.0',
     '@aws-cdk/integ-tests-alpha',
     'cdk-nag',
+    '@cdklabs/cdk-cicd-wrapper-cli',
   ],
   peerDeps: ['aws-cdk-lib'],
   jestOptions: {
@@ -30,6 +32,10 @@ const project = new CdklabsConstructLibrary({
     },
     updateSnapshot: UpdateSnapshot.NEVER,
   },
+  autoApproveOptions: {
+    allowedUsernames: ['aws-cdk-automation', 'dependabot[bot]'],
+  },
+  pullRequestTemplate: true,
 
   gitignore: [
     '.envrc',
@@ -37,6 +43,13 @@ const project = new CdklabsConstructLibrary({
     '.devbox',
     '.vscode',
   ],
+  stability: 'experimental',
+});
+
+project.addTask('license', {
+  exec: 'cdk-cicd license',
+  description: 'Check license headers',
+  receiveArgs: true,
 });
 
 // JSII sets this to `false` so we need to be compatible

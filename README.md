@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg" alt="Apache 2.0 License"></a>
+  <a href="https://github.com/cdklabs/cdk-cicd-wrapper/actions/workflows/release.yml"><img src="https://github.com/cdklabs/cdk-data-zone/actions/workflows/release.yml/badge.svg" alt="Release badge"></a>
+  <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cdklabs/cdk-data-zone"><img src="https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue" alt="Open in DEV Containers"></a>
+</p>
+
 # CDK Amazon DataZone Construct Library
 
 **CDK Amazon DataZone** is an AWS CDK construct library that simplifies the creation and management of **Amazon DataZone** resources. This library enables developers to automate data governance, data cataloging, and secure data sharing across domains by using familiar infrastructure-as-code practices with AWS CDK.
@@ -21,11 +27,9 @@ npm install @cdklabs/cdk-data-zone
 Here’s an example of how to use the **@cdklabs/cdk-data-zone** library in your AWS CDK project:
 
 ```typescript
-import * as path from 'path';
-import { App, RemovalPolicy, Stack } from 'aws-cdk-lib';
+import { App, RemovalPolicy } from 'aws-cdk-lib';
 import { Key } from 'aws-cdk-lib/aws-kms';
 import { Bucket, BucketEncryption } from 'aws-cdk-lib/aws-s3';
-import { Domain, Environment, EnvironmentProfile, Forms, Glossaries, BlueprintEnvironmentIdentifiers } from '@cdklabs/cdk-data-zone';
 
 const app = new App();
 const stack = new Stack(app, 'TestStack');
@@ -54,8 +58,8 @@ const blueprint = domain.enableBlueprint(BlueprintEnvironmentIdentifiers.DEFAULT
 // Create a Project within the Domain
 const project = domain.createProject('test-project', {
   name: 'test-project',
-  glossaries: Glossaries.fromFile(path.resolve(__dirname, './resources/glossaries.json')),
-  forms: Forms.fromFile(path.resolve(__dirname, './resources/form-metadata.json')),
+  glossaries: Glossaries.fromFile('./resources/glossaries.json'),
+  forms: Forms.fromFile('./resources/form-metadata.json'),
 });
 
 // Create an Environment Profile for the Project
