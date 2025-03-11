@@ -33,7 +33,7 @@ describe('Domain', () => {
 
   test('addSingleSignOn method updates single sign-on configuration', () => {
     domain.addSingleSignOn({
-      type: SingleSignOnType.IAM_IDC,
+      ssoType: SingleSignOnType.IAM_IDC,
       userAssignment: AssignmentType.AUTOMATIC,
     });
 

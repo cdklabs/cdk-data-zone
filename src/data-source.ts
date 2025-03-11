@@ -14,7 +14,7 @@ const IS_DATA_SOURCE = Symbol.for('amazon-datazone.DataSource');
 
 export interface FilterExpression {
   readonly expression: string;
-  readonly type?: 'INCLUDE' | 'EXCLUDE';
+  readonly filterType?: 'INCLUDE' | 'EXCLUDE';
 }
 
 export interface FilterConfiguration {
@@ -35,7 +35,7 @@ export interface GlueOptions extends SourceOptions {
 
 export interface RedshiftOptions extends SourceOptions {
   readonly name: string;
-  readonly type: 'CLUSTER' | 'WORKGROUP';
+  readonly redshiftType: 'CLUSTER' | 'WORKGROUP';
   readonly credentials: secrets.Secret;
 }
 
@@ -52,7 +52,7 @@ export abstract class DataSourceConfigurationBase implements IDataSourceConfigur
             databaseName: filter.databaseName,
             filterExpressions: filter.filterExpressions?.map(expression => ({
               expression: expression.expression,
-              type: expression.type ?? 'INCLUDE',
+              type: expression.filterType ?? 'INCLUDE',
             })),
             schemaName: filter.schemaName,
           };
@@ -67,7 +67,7 @@ export abstract class DataSourceConfigurationBase implements IDataSourceConfigur
 
     const configuration: datazone.CfnDataSource.DataSourceConfigurationInputProperty = {
       redshiftRunConfiguration: {
-        redshiftStorage: 'CLUSTER' === options.type ? {
+        redshiftStorage: 'CLUSTER' === options.redshiftType ? {
           redshiftClusterSource: {
             clusterName: options.name,
           },
@@ -85,7 +85,7 @@ export abstract class DataSourceConfigurationBase implements IDataSourceConfigur
             databaseName: filter.databaseName,
             filterExpressions: filter.filterExpressions?.map(expression => ({
               expression: expression.expression,
-              type: expression.type ?? 'INCLUDE',
+              type: expression.filterType ?? 'INCLUDE',
             })),
             schemaName: filter.schemaName,
           };
@@ -96,7 +96,7 @@ export abstract class DataSourceConfigurationBase implements IDataSourceConfigur
     return new DataSourceConfiguration('REDSHIFT', configuration);
   }
 
-  readonly abstract type: string;
+  readonly abstract filterType: string;
 
   readonly abstract configuration: datazone.CfnDataSource.DataSourceConfigurationInputProperty;
 
@@ -104,7 +104,7 @@ export abstract class DataSourceConfigurationBase implements IDataSourceConfigur
 
 class DataSourceConfiguration implements IDataSourceConfiguration {
 
-  constructor(readonly type: string, readonly configuration: datazone.CfnDataSource.DataSourceConfigurationInputProperty) {
+  constructor(readonly filterType: string, readonly configuration: datazone.CfnDataSource.DataSourceConfigurationInputProperty) {
   }
 }
 
@@ -315,7 +315,7 @@ export class DataSource extends DataSourceBase {
 
   readonly schedule?: Schedule;
 
-  readonly type: string;
+  readonly filterType: string;
 
   readonly description?: string;
 
@@ -329,7 +329,7 @@ export class DataSource extends DataSourceBase {
 
     this.description = props.description;
     this.name = props.name;
-    this.type = props.configuration.type;
+    this.filterType = props.configuration.filterType;
     this.enabled = props.enabled ?? true;
     this.publishOnImport = props.publishOnImport ?? true;
     this.recommendation = props.recommendation ?? true;
@@ -345,7 +345,7 @@ export class DataSource extends DataSourceBase {
       publishOnImport: this.publishOnImport,
       recommendation: this.recommendation ? { enableBusinessNameGeneration: true } : undefined,
       schedule: props.schedule ? { schedule: props.schedule.expression, timezone: props.schedule.timezone } : undefined,
-      type: props.configuration.type,
+      type: props.configuration.filterType,
       configuration: props.configuration.configuration,
     });
 

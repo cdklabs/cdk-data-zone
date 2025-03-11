@@ -701,10 +701,10 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-data-zone.DataSource.property.project">project</a></code> | <code><a href="#cdk-data-zone.IProject">IProject</a></code> | The project ID included in the data source run activity. |
 | <code><a href="#cdk-data-zone.DataSource.property.status">status</a></code> | <code>string</code> | The status of the data source. |
 | <code><a href="#cdk-data-zone.DataSource.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-data-zone.DataSource.property.filterType">filterType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.publishOnImport">publishOnImport</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.recommendation">recommendation</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-data-zone.DataSource.property.type">type</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.description">description</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.DataSource.property.schedule">schedule</a></code> | <code><a href="#cdk-data-zone.Schedule">Schedule</a></code> | *No description.* |
 
@@ -871,6 +871,16 @@ public readonly enabled: boolean;
 
 ---
 
+##### `filterType`<sup>Required</sup> <a name="filterType" id="cdk-data-zone.DataSource.property.filterType"></a>
+
+```typescript
+public readonly filterType: string;
+```
+
+- *Type:* string
+
+---
+
 ##### `name`<sup>Required</sup> <a name="name" id="cdk-data-zone.DataSource.property.name"></a>
 
 ```typescript
@@ -898,16 +908,6 @@ public readonly recommendation: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.DataSource.property.type"></a>
-
-```typescript
-public readonly type: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -2095,13 +2095,13 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-data-zone.Environment.property.awsAccountRegion">awsAccountRegion</a></code> | <code>string</code> | The AWS Region in which an environment exists. |
 | <code><a href="#cdk-data-zone.Environment.property.createdBy">createdBy</a></code> | <code>string</code> | The Amazon  user who created the environment. |
 | <code><a href="#cdk-data-zone.Environment.property.domainId">domainId</a></code> | <code>string</code> | The identifier of the Amazon  domain in which the environment exists. |
-| <code><a href="#cdk-data-zone.Environment.property.environmentBlueprintId">environmentBlueprintId</a></code> | <code>string</code> | The identifier of a blueprint with which an environment profile is created. |
+| <code><a href="#cdk-data-zone.Environment.property.environmentBlueprintId">environmentBlueprintId</a></code> | <code>string</code> | The identifier of a blueprint with which an environment profile, or a custom environment is created. |
 | <code><a href="#cdk-data-zone.Environment.property.environmentId">environmentId</a></code> | <code>string</code> | The identifier of the environment. |
-| <code><a href="#cdk-data-zone.Environment.property.environmentProfile">environmentProfile</a></code> | <code><a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a></code> | The identifier of the environment profile with which the environment was created. |
 | <code><a href="#cdk-data-zone.Environment.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.Environment.property.project">project</a></code> | <code><a href="#cdk-data-zone.IProject">IProject</a></code> | The identifier of the project in which the environment exists. |
 | <code><a href="#cdk-data-zone.Environment.property.provider">provider</a></code> | <code>string</code> | The provider of the environment. |
 | <code><a href="#cdk-data-zone.Environment.property.status">status</a></code> | <code>string</code> | The status of the environment. |
+| <code><a href="#cdk-data-zone.Environment.property.environmentProfile">environmentProfile</a></code> | <code><a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a></code> | The identifier of the environment profile with which the environment was created. |
 
 ---
 
@@ -2228,7 +2228,7 @@ public readonly environmentBlueprintId: string;
 
 - *Type:* string
 
-The identifier of a blueprint with which an environment profile is created.
+The identifier of a blueprint with which an environment profile, or a custom environment is created.
 
 ---
 
@@ -2241,18 +2241,6 @@ public readonly environmentId: string;
 - *Type:* string
 
 The identifier of the environment.
-
----
-
-##### `environmentProfile`<sup>Required</sup> <a name="environmentProfile" id="cdk-data-zone.Environment.property.environmentProfile"></a>
-
-```typescript
-public readonly environmentProfile: IEnvironmentProfile;
-```
-
-- *Type:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
-
-The identifier of the environment profile with which the environment was created.
 
 ---
 
@@ -2299,6 +2287,18 @@ public readonly status: string;
 - *Type:* string
 
 The status of the environment.
+
+---
+
+##### `environmentProfile`<sup>Optional</sup> <a name="environmentProfile" id="cdk-data-zone.Environment.property.environmentProfile"></a>
+
+```typescript
+public readonly environmentProfile: IEnvironmentProfile;
+```
+
+- *Type:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
+
+The identifier of the environment profile with which the environment was created.
 
 ---
 
@@ -2474,11 +2474,11 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-data-zone.EnvironmentBase.property.domainId">domainId</a></code> | <code>string</code> | The identifier of the Amazon  domain in which the environment exists. |
 | <code><a href="#cdk-data-zone.EnvironmentBase.property.environmentBlueprintId">environmentBlueprintId</a></code> | <code>string</code> | The identifier of a blueprint with which an environment profile is created. |
 | <code><a href="#cdk-data-zone.EnvironmentBase.property.environmentId">environmentId</a></code> | <code>string</code> | The identifier of the environment. |
-| <code><a href="#cdk-data-zone.EnvironmentBase.property.environmentProfile">environmentProfile</a></code> | <code><a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a></code> | The identifier of the environment profile with which the environment was created. |
 | <code><a href="#cdk-data-zone.EnvironmentBase.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-data-zone.EnvironmentBase.property.project">project</a></code> | <code><a href="#cdk-data-zone.IProject">IProject</a></code> | The identifier of the project in which the environment exists. |
 | <code><a href="#cdk-data-zone.EnvironmentBase.property.provider">provider</a></code> | <code>string</code> | The provider of the environment. |
 | <code><a href="#cdk-data-zone.EnvironmentBase.property.status">status</a></code> | <code>string</code> | The status of the environment. |
+| <code><a href="#cdk-data-zone.EnvironmentBase.property.environmentProfile">environmentProfile</a></code> | <code><a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a></code> | The identifier of the environment profile with which the environment was created. |
 
 ---
 
@@ -2621,18 +2621,6 @@ The identifier of the environment.
 
 ---
 
-##### `environmentProfile`<sup>Required</sup> <a name="environmentProfile" id="cdk-data-zone.EnvironmentBase.property.environmentProfile"></a>
-
-```typescript
-public readonly environmentProfile: IEnvironmentProfile;
-```
-
-- *Type:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
-
-The identifier of the environment profile with which the environment was created.
-
----
-
 ##### `name`<sup>Required</sup> <a name="name" id="cdk-data-zone.EnvironmentBase.property.name"></a>
 
 ```typescript
@@ -2676,6 +2664,18 @@ public readonly status: string;
 - *Type:* string
 
 The status of the environment.
+
+---
+
+##### `environmentProfile`<sup>Optional</sup> <a name="environmentProfile" id="cdk-data-zone.EnvironmentBase.property.environmentProfile"></a>
+
+```typescript
+public readonly environmentProfile: IEnvironmentProfile;
+```
+
+- *Type:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
+
+The identifier of the environment profile with which the environment was created.
 
 ---
 
@@ -6143,7 +6143,6 @@ const environmentOptions: EnvironmentOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-data-zone.EnvironmentOptions.property.description">description</a></code> | <code>string</code> | The description of the environment. |
-| <code><a href="#cdk-data-zone.EnvironmentOptions.property.environmentRole">environmentRole</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | The ARN of the environment role. |
 | <code><a href="#cdk-data-zone.EnvironmentOptions.property.glossaryTerms">glossaryTerms</a></code> | <code>string[]</code> | The glossary terms that can be used in this Amazon  environment. |
 | <code><a href="#cdk-data-zone.EnvironmentOptions.property.name">name</a></code> | <code>string</code> | The name of the Amazon  environment. |
 | <code><a href="#cdk-data-zone.EnvironmentOptions.property.userParameters">userParameters</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_datazone.CfnEnvironment.EnvironmentParameterProperty[]</code> | The user parameters of this Amazon  environment. |
@@ -6161,20 +6160,6 @@ public readonly description: string;
 The description of the environment.
 
 > [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-description](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-description)
-
----
-
-##### `environmentRole`<sup>Optional</sup> <a name="environmentRole" id="cdk-data-zone.EnvironmentOptions.property.environmentRole"></a>
-
-```typescript
-public readonly environmentRole: Role;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.Role
-
-The ARN of the environment role.
-
-> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn)
 
 ---
 
@@ -6354,27 +6339,16 @@ const environmentProps: EnvironmentProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-data-zone.EnvironmentProps.property.environmentProfile">environmentProfile</a></code> | <code><a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a></code> | The identifier of the environment profile that is used to create this Amazon  environment. |
 | <code><a href="#cdk-data-zone.EnvironmentProps.property.name">name</a></code> | <code>string</code> | The name of the Amazon  environment. |
 | <code><a href="#cdk-data-zone.EnvironmentProps.property.project">project</a></code> | <code><a href="#cdk-data-zone.IProject">IProject</a></code> | The identifier of the Amazon  project in which this environment is created. |
 | <code><a href="#cdk-data-zone.EnvironmentProps.property.description">description</a></code> | <code>string</code> | The description of the environment. |
+| <code><a href="#cdk-data-zone.EnvironmentProps.property.environmentAccountId">environmentAccountId</a></code> | <code>string</code> | (Required for Custom Service Environments)  The AWS Region in which the custom service environment will be created in exists. |
+| <code><a href="#cdk-data-zone.EnvironmentProps.property.environmentAccountRegion">environmentAccountRegion</a></code> | <code>string</code> | (Required for Custom Service Environments) The identifier of an AWS account in which the custom service environment will be created in exists. |
+| <code><a href="#cdk-data-zone.EnvironmentProps.property.environmentBlueprintId">environmentBlueprintId</a></code> | <code>string</code> | The identifier of the custom aws service blueprint with which the environment is to be created. |
+| <code><a href="#cdk-data-zone.EnvironmentProps.property.environmentProfile">environmentProfile</a></code> | <code><a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a></code> | The identifier of the environment profile that is used to create this Amazon DataZone Environment. |
 | <code><a href="#cdk-data-zone.EnvironmentProps.property.environmentRole">environmentRole</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | The ARN of the environment role. |
 | <code><a href="#cdk-data-zone.EnvironmentProps.property.glossaryTerms">glossaryTerms</a></code> | <code>string[]</code> | The glossary terms that can be used in this Amazon  environment. |
 | <code><a href="#cdk-data-zone.EnvironmentProps.property.userParameters">userParameters</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_datazone.CfnEnvironment.EnvironmentParameterProperty[]</code> | The user parameters of this Amazon  environment. |
-
----
-
-##### `environmentProfile`<sup>Required</sup> <a name="environmentProfile" id="cdk-data-zone.EnvironmentProps.property.environmentProfile"></a>
-
-```typescript
-public readonly environmentProfile: IEnvironmentProfile;
-```
-
-- *Type:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
-
-The identifier of the environment profile that is used to create this Amazon  environment.
-
-> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier)
 
 ---
 
@@ -6420,6 +6394,60 @@ The description of the environment.
 
 ---
 
+##### `environmentAccountId`<sup>Optional</sup> <a name="environmentAccountId" id="cdk-data-zone.EnvironmentProps.property.environmentAccountId"></a>
+
+```typescript
+public readonly environmentAccountId: string;
+```
+
+- *Type:* string
+
+(Required for Custom Service Environments)  The AWS Region in which the custom service environment will be created in exists.
+
+---
+
+##### `environmentAccountRegion`<sup>Optional</sup> <a name="environmentAccountRegion" id="cdk-data-zone.EnvironmentProps.property.environmentAccountRegion"></a>
+
+```typescript
+public readonly environmentAccountRegion: string;
+```
+
+- *Type:* string
+
+(Required for Custom Service Environments) The identifier of an AWS account in which the custom service environment will be created in exists.
+
+---
+
+##### `environmentBlueprintId`<sup>Optional</sup> <a name="environmentBlueprintId" id="cdk-data-zone.EnvironmentProps.property.environmentBlueprintId"></a>
+
+```typescript
+public readonly environmentBlueprintId: string;
+```
+
+- *Type:* string
+
+The identifier of the custom aws service blueprint with which the environment is to be created.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html)
+
+---
+
+##### `environmentProfile`<sup>Optional</sup> <a name="environmentProfile" id="cdk-data-zone.EnvironmentProps.property.environmentProfile"></a>
+
+```typescript
+public readonly environmentProfile: IEnvironmentProfile;
+```
+
+- *Type:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
+
+The identifier of the environment profile that is used to create this Amazon DataZone Environment.
+
+(Not allowed for Custom Service Blueprints)
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier)
+
+---
+
 ##### `environmentRole`<sup>Optional</sup> <a name="environmentRole" id="cdk-data-zone.EnvironmentProps.property.environmentRole"></a>
 
 ```typescript
@@ -6429,6 +6457,8 @@ public readonly environmentRole: Role;
 - *Type:* aws-cdk-lib.aws_iam.Role
 
 The ARN of the environment role.
+
+(Required For Custom Service Blueprints Only)
 
 > [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn)
 
@@ -6527,7 +6557,7 @@ const filterExpression: FilterExpression = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-data-zone.FilterExpression.property.expression">expression</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-data-zone.FilterExpression.property.type">type</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-data-zone.FilterExpression.property.filterType">filterType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -6541,10 +6571,10 @@ public readonly expression: string;
 
 ---
 
-##### `type`<sup>Optional</sup> <a name="type" id="cdk-data-zone.FilterExpression.property.type"></a>
+##### `filterType`<sup>Optional</sup> <a name="filterType" id="cdk-data-zone.FilterExpression.property.filterType"></a>
 
 ```typescript
-public readonly type: string;
+public readonly filterType: string;
 ```
 
 - *Type:* string
@@ -7251,7 +7281,7 @@ const redshiftOptions: RedshiftOptions = { ... }
 | <code><a href="#cdk-data-zone.RedshiftOptions.property.dataAccessRole">dataAccessRole</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
 | <code><a href="#cdk-data-zone.RedshiftOptions.property.credentials">credentials</a></code> | <code>aws-cdk-lib.aws_secretsmanager.Secret</code> | *No description.* |
 | <code><a href="#cdk-data-zone.RedshiftOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-data-zone.RedshiftOptions.property.type">type</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-data-zone.RedshiftOptions.property.redshiftType">redshiftType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -7295,10 +7325,10 @@ public readonly name: string;
 
 ---
 
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.RedshiftOptions.property.type"></a>
+##### `redshiftType`<sup>Required</sup> <a name="redshiftType" id="cdk-data-zone.RedshiftOptions.property.redshiftType"></a>
 
 ```typescript
-public readonly type: string;
+public readonly redshiftType: string;
 ```
 
 - *Type:* string
@@ -7319,15 +7349,15 @@ const singleSignOn: SingleSignOn = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-data-zone.SingleSignOn.property.type">type</a></code> | <code><a href="#cdk-data-zone.SingleSignOnType">SingleSignOnType</a></code> | *No description.* |
+| <code><a href="#cdk-data-zone.SingleSignOn.property.ssoType">ssoType</a></code> | <code><a href="#cdk-data-zone.SingleSignOnType">SingleSignOnType</a></code> | *No description.* |
 | <code><a href="#cdk-data-zone.SingleSignOn.property.userAssignment">userAssignment</a></code> | <code><a href="#cdk-data-zone.AssignmentType">AssignmentType</a></code> | *No description.* |
 
 ---
 
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.SingleSignOn.property.type"></a>
+##### `ssoType`<sup>Required</sup> <a name="ssoType" id="cdk-data-zone.SingleSignOn.property.ssoType"></a>
 
 ```typescript
-public readonly type: SingleSignOnType;
+public readonly ssoType: SingleSignOnType;
 ```
 
 - *Type:* <a href="#cdk-data-zone.SingleSignOnType">SingleSignOnType</a>
@@ -7492,7 +7522,7 @@ DataSourceConfigurationBase.fromRedshift(options: RedshiftOptions)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-data-zone.DataSourceConfigurationBase.property.configuration">configuration</a></code> | <code>aws-cdk-lib.aws_datazone.CfnDataSource.DataSourceConfigurationInputProperty</code> | *No description.* |
-| <code><a href="#cdk-data-zone.DataSourceConfigurationBase.property.type">type</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-data-zone.DataSourceConfigurationBase.property.filterType">filterType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -7506,10 +7536,10 @@ public readonly configuration: DataSourceConfigurationInputProperty;
 
 ---
 
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.DataSourceConfigurationBase.property.type"></a>
+##### `filterType`<sup>Required</sup> <a name="filterType" id="cdk-data-zone.DataSourceConfigurationBase.property.filterType"></a>
 
 ```typescript
-public readonly type: string;
+public readonly filterType: string;
 ```
 
 - *Type:* string
@@ -8001,7 +8031,7 @@ The status of the data source.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-data-zone.IDataSourceConfiguration.property.configuration">configuration</a></code> | <code>aws-cdk-lib.aws_datazone.CfnDataSource.DataSourceConfigurationInputProperty</code> | *No description.* |
-| <code><a href="#cdk-data-zone.IDataSourceConfiguration.property.type">type</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-data-zone.IDataSourceConfiguration.property.filterType">filterType</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -8015,10 +8045,10 @@ public readonly configuration: DataSourceConfigurationInputProperty;
 
 ---
 
-##### `type`<sup>Required</sup> <a name="type" id="cdk-data-zone.IDataSourceConfiguration.property.type"></a>
+##### `filterType`<sup>Required</sup> <a name="filterType" id="cdk-data-zone.IDataSourceConfiguration.property.filterType"></a>
 
 ```typescript
-public readonly type: string;
+public readonly filterType: string;
 ```
 
 - *Type:* string
@@ -8270,10 +8300,10 @@ public addDataSource(name: string, options: DataSourceOptions): DataSource
 | <code><a href="#cdk-data-zone.IEnvironment.property.domainId">domainId</a></code> | <code>string</code> | The identifier of the Amazon  domain in which the environment exists. |
 | <code><a href="#cdk-data-zone.IEnvironment.property.environmentBlueprintId">environmentBlueprintId</a></code> | <code>string</code> | The identifier of a blueprint with which an environment profile is created. |
 | <code><a href="#cdk-data-zone.IEnvironment.property.environmentId">environmentId</a></code> | <code>string</code> | The identifier of the environment. |
-| <code><a href="#cdk-data-zone.IEnvironment.property.environmentProfile">environmentProfile</a></code> | <code><a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a></code> | The identifier of the environment profile with which the environment was created. |
 | <code><a href="#cdk-data-zone.IEnvironment.property.project">project</a></code> | <code><a href="#cdk-data-zone.IProject">IProject</a></code> | The identifier of the project in which the environment exists. |
 | <code><a href="#cdk-data-zone.IEnvironment.property.provider">provider</a></code> | <code>string</code> | The provider of the environment. |
 | <code><a href="#cdk-data-zone.IEnvironment.property.status">status</a></code> | <code>string</code> | The status of the environment. |
+| <code><a href="#cdk-data-zone.IEnvironment.property.environmentProfile">environmentProfile</a></code> | <code><a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a></code> | The identifier of the environment profile with which the environment was created. |
 
 ---
 
@@ -8416,18 +8446,6 @@ The identifier of the environment.
 
 ---
 
-##### `environmentProfile`<sup>Required</sup> <a name="environmentProfile" id="cdk-data-zone.IEnvironment.property.environmentProfile"></a>
-
-```typescript
-public readonly environmentProfile: IEnvironmentProfile;
-```
-
-- *Type:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
-
-The identifier of the environment profile with which the environment was created.
-
----
-
 ##### `project`<sup>Required</sup> <a name="project" id="cdk-data-zone.IEnvironment.property.project"></a>
 
 ```typescript
@@ -8461,6 +8479,18 @@ public readonly status: string;
 - *Type:* string
 
 The status of the environment.
+
+---
+
+##### `environmentProfile`<sup>Optional</sup> <a name="environmentProfile" id="cdk-data-zone.IEnvironment.property.environmentProfile"></a>
+
+```typescript
+public readonly environmentProfile: IEnvironmentProfile;
+```
+
+- *Type:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
+
+The identifier of the environment profile with which the environment was created.
 
 ---
 

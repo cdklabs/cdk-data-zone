@@ -3,6 +3,7 @@ import { Construct } from 'constructs';
 import {
   Stack,
 } from 'aws-cdk-lib';
+import { Domain, Environment, EnvironmentProfile, Forms, Glossaries, BlueprintEnvironmentIdentifiers } from 'cdk-data-zone';
 
 class Fixture extends Stack {
   constructor(scope: Construct, id: string) {

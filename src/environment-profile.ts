@@ -3,7 +3,6 @@
 
 import * as cdk from 'aws-cdk-lib';
 import * as datazone from 'aws-cdk-lib/aws-datazone';
-import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 import { IBlueprint } from './blueprint';
 import { Environment } from './environment';
@@ -19,12 +18,6 @@ export interface EnvironmentOptions {
      * @see http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-description
      */
   readonly description?: string;
-  /**
-     * The ARN of the environment role.
-     *
-     * @see http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn
-     */
-  readonly environmentRole?: iam.Role;
   /**
      * The glossary terms that can be used in this Amazon  environment.
      *

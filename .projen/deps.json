@@ -10,6 +10,10 @@
       "type": "build"
     },
     {
+      "name": "@cdklabs/cdk-cicd-wrapper-cli",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -86,7 +90,7 @@
     },
     {
       "name": "jsii",
-      "version": "~5.2",
+      "version": "~5.5",
       "type": "build"
     },
     {

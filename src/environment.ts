@@ -14,22 +14,39 @@ const IS_ENVIRONMENT = Symbol.for('amazon-datazone.Environment');
 
 export interface EnvironmentProps {
   /**
+   * (Required for Custom Service Environments)
+   *  The AWS Region in which the custom service environment will be created in exists.
+   */
+  readonly environmentAccountId?: string;
+  /**
+   * (Required for Custom Service Environments)
+   * The identifier of an AWS account in which the custom service environment will be created in exists.
+   */
+  readonly environmentAccountRegion?: string;
+  /**
+   * The identifier of the custom aws service blueprint with which the environment is to be created.
+   *
+   * @see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html
+   */
+  readonly environmentBlueprintId?: string;
+  /**
      * The description of the environment.
      *
      * @see http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-description
      */
   readonly description?: string;
   /**
-     * The identifier of the environment profile that is used to create this Amazon  environment.
+     * The identifier of the environment profile that is used to create this Amazon DataZone Environment. (Not allowed for Custom Service Blueprints)
      *
      * @see http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier
      */
-  readonly environmentProfile: IEnvironmentProfile;
+  readonly environmentProfile?: IEnvironmentProfile;
   /**
-     * The ARN of the environment role.
-     *
-     * @see http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn
-     */
+   * The ARN of the environment role. (Required For Custom Service Blueprints Only)
+   *
+   * @see http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn
+   *
+   */
   readonly environmentRole?: iam.Role;
   /**
      * The glossary terms that can be used in this Amazon  environment.
@@ -112,7 +129,7 @@ export interface IEnvironment extends IResource {
      *
      * @cloudformationAttribute EnvironmentProfileId
      */
-  readonly environmentProfile: IEnvironmentProfile;
+  readonly environmentProfile?: IEnvironmentProfile;
   /**
      * The identifier of the environment.
      *
@@ -184,7 +201,7 @@ export abstract class EnvironmentBase extends ResourceBase implements IEnvironme
      *
      * @cloudformationAttribute EnvironmentProfileId
      */
-  readonly abstract environmentProfile: IEnvironmentProfile;
+  readonly abstract environmentProfile?: IEnvironmentProfile;
   /**
      * The identifier of the environment.
      *
@@ -261,7 +278,7 @@ export class Environment extends EnvironmentBase {
      */
   readonly domainId: string;
   /**
-     * The identifier of a blueprint with which an environment profile is created.
+     * The identifier of a blueprint with which an environment profile, or a custom environment is created
      *
      * @cloudformationAttribute EnvironmentBlueprintId
      * @attribute
@@ -272,7 +289,7 @@ export class Environment extends EnvironmentBase {
      *
      * @cloudformationAttribute EnvironmentProfileId
      */
-  readonly environmentProfile: IEnvironmentProfile;
+  readonly environmentProfile?: IEnvironmentProfile;
   /**
      * The identifier of the environment.
      *
@@ -318,14 +335,15 @@ export class Environment extends EnvironmentBase {
       throw new Error('Project name must be 64 characters or less');
     }
 
+
     const resource = new datazone.CfnEnvironment(this, 'Resource', {
       domainIdentifier: props.project.projectDomainId,
       projectIdentifier: props.project.projectId,
       name: props.name,
       description: props.description,
-      environmentProfileIdentifier: props.environmentProfile.environmentProfileId,
-      environmentAccountIdentifier: props.environmentProfile.awsAccountId,
-      environmentAccountRegion: props.environmentProfile.awsAccountRegion,
+      environmentProfileIdentifier: props.environmentProfile?.environmentProfileId ?? '',
+      environmentAccountIdentifier: props.environmentProfile?.awsAccountId ?? props?.environmentAccountId,
+      environmentAccountRegion: props.environmentProfile?.awsAccountRegion ?? props?.environmentAccountRegion,
       environmentRoleArn: props.environmentRole?.roleArn,
       glossaryTerms: props.glossaryTerms,
       userParameters: props.userParameters,
@@ -335,13 +353,13 @@ export class Environment extends EnvironmentBase {
     this.createdAt = resource.attrCreatedAt;
     this.createdBy = resource.attrCreatedBy;
     this.project = props.project;
-    this.environmentBlueprintId = resource.attrEnvironmentBlueprintId;
     this.updatedAt = resource.attrUpdatedAt;
     this.environmentId = resource.attrId;
     this.status = resource.attrStatus;
     this.name = props.name;
-    this.provider = resource.attrProvider;
+    this.environmentBlueprintId = props.environmentProfile?.environmentBlueprintId ?? props.environmentBlueprintId ?? '';
     this.environmentProfile = props.environmentProfile;
+    this.provider = resource.attrProvider;
     this.domainId = resource.attrDomainId;
     this.awsAccountId = resource.attrAwsAccountId;
     this.awsAccountRegion = resource.attrAwsAccountRegion;
