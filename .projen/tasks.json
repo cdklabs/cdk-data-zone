@@ -281,6 +281,36 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
+    "py-lint": {
+      "name": "py-lint",
+      "description": "Run python linter(s), e.g: black",
+      "steps": [
+        {
+          "exec": "./scripts/py-lint.sh",
+          "receiveArgs": false
+        }
+      ]
+    },
+    "py-prepare": {
+      "name": "py-prepare",
+      "description": "Install python dependencies",
+      "steps": [
+        {
+          "exec": "./scripts/py-prepare.sh",
+          "receiveArgs": false
+        }
+      ]
+    },
+    "py-test": {
+      "name": "py-test",
+      "description": "Run python tests, e.g: pytest",
+      "steps": [
+        {
+          "exec": "./scripts/py-test.sh",
+          "receiveArgs": false
+        }
+      ]
+    },
     "release": {
       "name": "release",
       "description": "Prepare a release from \"main\" branch",

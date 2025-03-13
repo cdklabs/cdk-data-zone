@@ -6,7 +6,7 @@ const project = new CdklabsConstructLibrary({
   projenrcTs: true,
   private: false,
   name: 'cdk-data-zone',
-  description: 'AWS DataZone L2 Construct library',
+  description: 'Amazon DataZone L2 Construct library',
   author: 'Amazon Web Services',
   authorAddress: 'gyalai@amazon.ch',
   cdkVersion: '2.160.0',
@@ -38,9 +38,13 @@ const project = new CdklabsConstructLibrary({
   pullRequestTemplate: true,
 
   gitignore: [
-    '.envrc',
-    '.env',
+    '__pycache__',
+    '.coverage',
     '.devbox',
+    '.env',
+    '.envrc',
+    '.pytest_cache',
+    '.venv',
     '.vscode',
   ],
   stability: 'experimental',
@@ -50,6 +54,24 @@ project.addTask('license', {
   exec: 'cdk-cicd license',
   description: 'Check license headers',
   receiveArgs: true,
+});
+
+project.addTask('py-prepare', {
+  exec: './scripts/py-prepare.sh',
+  description: 'Install python dependencies',
+  receiveArgs: false,
+});
+
+project.addTask('py-lint', {
+  exec: './scripts/py-lint.sh',
+  description: 'Run python linter(s), e.g: black',
+  receiveArgs: false,
+});
+
+project.addTask('py-test', {
+  exec: './scripts/py-test.sh',
+  description: 'Run python tests, e.g: pytest',
+  receiveArgs: false,
 });
 
 // JSII sets this to `false` so we need to be compatible

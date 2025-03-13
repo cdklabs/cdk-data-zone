@@ -1,6 +1,6 @@
 {
   "name": "cdk-data-zone",
-  "description": "AWS DataZone L2 Construct library",
+  "description": "Amazon DataZone L2 Construct library",
   "repository": {
     "type": "git",
     "url": "https://github.com/cdklabs/cdk-data-zone.git"
@@ -28,6 +28,9 @@
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
+    "py-lint": "npx projen py-lint",
+    "py-prepare": "npx projen py-prepare",
+    "py-test": "npx projen py-test",
     "release": "npx projen release",
     "rosetta:extract": "npx projen rosetta:extract",
     "test": "npx projen test",
