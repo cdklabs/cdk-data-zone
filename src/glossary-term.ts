@@ -96,7 +96,7 @@ export class GlossaryTerm extends GlossaryTermBase {
     const lambdaFunction = new lambda.Function(stack, GLOSSARY_TERM_CUSTOM_RESOURCE + 'Lambda', {
       functionName,
       runtime: lambda.Runtime.PYTHON_3_12,
-      code: lambda.Code.fromAsset(path.resolve(__dirname, '../assets/glossary-terms')),
+      code: lambda.Code.fromAsset(path.resolve(__dirname, '../assets/glossary_terms')),
       handler: 'main.handler',
       memorySize: 1024,
       timeout: cdk.Duration.minutes(5),

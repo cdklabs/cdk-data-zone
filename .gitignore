@@ -31,9 +31,13 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
-.envrc
-.env
+__pycache__
+.coverage
 .devbox
+.env
+.envrc
+.pytest_cache
+.venv
 .vscode
 /test-reports/
 junit.xml
