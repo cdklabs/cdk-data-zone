@@ -4,6 +4,8 @@
 
 ### Blueprint <a name="Blueprint" id="cdk-data-zone.Blueprint"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IBlueprint">IBlueprint</a>, <a href="#cdk-data-zone.IResource">IResource</a>
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.Blueprint.Initializer"></a>
 
 ```typescript
@@ -106,7 +108,7 @@ public addParameters(region: string, parameters: {[ key: string ]: string}): voi
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.Blueprint.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.Blueprint.isConstruct"></a>
 
 ```typescript
 import { Blueprint } from 'cdk-data-zone'
@@ -115,6 +117,20 @@ Blueprint.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.Blueprint.isConstruct.parameter.x"></a>
 
@@ -304,7 +320,7 @@ public readonly provisioningRole: Role;
 
 ### BlueprintBase <a name="BlueprintBase" id="cdk-data-zone.BlueprintBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IBlueprint">IBlueprint</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IBlueprint">IBlueprint</a>, <a href="#cdk-data-zone.IResource">IResource</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.BlueprintBase.Initializer"></a>
 
@@ -408,7 +424,7 @@ public addParameters(region: string, parameters: {[ key: string ]: string}): voi
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.BlueprintBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.BlueprintBase.isConstruct"></a>
 
 ```typescript
 import { BlueprintBase } from 'cdk-data-zone'
@@ -417,6 +433,20 @@ BlueprintBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.BlueprintBase.isConstruct.parameter.x"></a>
 
@@ -551,6 +581,8 @@ public readonly blueprintId: string;
 
 ### DataSource <a name="DataSource" id="cdk-data-zone.DataSource"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IDataSource">IDataSource</a>, <a href="#cdk-data-zone.IResource">IResource</a>
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.DataSource.Initializer"></a>
 
 ```typescript
@@ -634,7 +666,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.DataSource.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.DataSource.isConstruct"></a>
 
 ```typescript
 import { DataSource } from 'cdk-data-zone'
@@ -643,6 +675,20 @@ DataSource.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.DataSource.isConstruct.parameter.x"></a>
 
@@ -934,7 +980,7 @@ public readonly schedule: Schedule;
 
 ### DataSourceBase <a name="DataSourceBase" id="cdk-data-zone.DataSourceBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IDataSource">IDataSource</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IDataSource">IDataSource</a>, <a href="#cdk-data-zone.IResource">IResource</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.DataSourceBase.Initializer"></a>
 
@@ -1019,7 +1065,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.DataSourceBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.DataSourceBase.isConstruct"></a>
 
 ```typescript
 import { DataSourceBase } from 'cdk-data-zone'
@@ -1028,6 +1074,20 @@ DataSourceBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.DataSourceBase.isConstruct.parameter.x"></a>
 
@@ -1242,6 +1302,8 @@ The status of the data source.
 
 ### Domain <a name="Domain" id="cdk-data-zone.Domain"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IDomain">IDomain</a>, <a href="#cdk-data-zone.IResource">IResource</a>
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.Domain.Initializer"></a>
 
 ```typescript
@@ -1376,7 +1438,7 @@ public enableBlueprint(blueprintIdentifier: string, options?: BlueprintOptions):
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.Domain.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.Domain.isConstruct"></a>
 
 ```typescript
 import { Domain } from 'cdk-data-zone'
@@ -1385,6 +1447,20 @@ Domain.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.Domain.isConstruct.parameter.x"></a>
 
@@ -1607,7 +1683,7 @@ public readonly description: string;
 
 ### DomainBase <a name="DomainBase" id="cdk-data-zone.DomainBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IDomain">IDomain</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IDomain">IDomain</a>, <a href="#cdk-data-zone.IResource">IResource</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.DomainBase.Initializer"></a>
 
@@ -1743,7 +1819,7 @@ public enableBlueprint(blueprintIdentifier: string, options?: BlueprintOptions):
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.DomainBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.DomainBase.isConstruct"></a>
 
 ```typescript
 import { DomainBase } from 'cdk-data-zone'
@@ -1752,6 +1828,20 @@ DomainBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.DomainBase.isConstruct.parameter.x"></a>
 
@@ -1930,6 +2020,8 @@ public readonly status: string;
 
 ### Environment <a name="Environment" id="cdk-data-zone.Environment"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IEnvironment">IEnvironment</a>, <a href="#cdk-data-zone.IResource">IResource</a>
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.Environment.Initializer"></a>
 
 ```typescript
@@ -2032,7 +2124,7 @@ public addDataSource(name: string, options: DataSourceOptions): DataSource
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.Environment.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.Environment.isConstruct"></a>
 
 ```typescript
 import { Environment } from 'cdk-data-zone'
@@ -2041,6 +2133,20 @@ Environment.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.Environment.isConstruct.parameter.x"></a>
 
@@ -2305,7 +2411,7 @@ The identifier of the environment profile with which the environment was created
 
 ### EnvironmentBase <a name="EnvironmentBase" id="cdk-data-zone.EnvironmentBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IEnvironment">IEnvironment</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IEnvironment">IEnvironment</a>, <a href="#cdk-data-zone.IResource">IResource</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.EnvironmentBase.Initializer"></a>
 
@@ -2409,7 +2515,7 @@ public addDataSource(name: string, options: DataSourceOptions): DataSource
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.EnvironmentBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.EnvironmentBase.isConstruct"></a>
 
 ```typescript
 import { EnvironmentBase } from 'cdk-data-zone'
@@ -2418,6 +2524,20 @@ EnvironmentBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.EnvironmentBase.isConstruct.parameter.x"></a>
 
@@ -2682,6 +2802,8 @@ The identifier of the environment profile with which the environment was created
 
 ### EnvironmentProfile <a name="EnvironmentProfile" id="cdk-data-zone.EnvironmentProfile"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>, <a href="#cdk-data-zone.IResource">IResource</a>
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.EnvironmentProfile.Initializer"></a>
 
 ```typescript
@@ -2784,7 +2906,7 @@ public addEnvironment(id: string, options: EnvironmentOptions): Environment
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.EnvironmentProfile.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.EnvironmentProfile.isConstruct"></a>
 
 ```typescript
 import { EnvironmentProfile } from 'cdk-data-zone'
@@ -2793,6 +2915,20 @@ EnvironmentProfile.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.EnvironmentProfile.isConstruct.parameter.x"></a>
 
@@ -3012,7 +3148,7 @@ public readonly description: string;
 
 ### EnvironmentProfileBase <a name="EnvironmentProfileBase" id="cdk-data-zone.EnvironmentProfileBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IEnvironmentProfile">IEnvironmentProfile</a>, <a href="#cdk-data-zone.IResource">IResource</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.EnvironmentProfileBase.Initializer"></a>
 
@@ -3116,7 +3252,7 @@ public addEnvironment(id: string, options: EnvironmentOptions): Environment
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.EnvironmentProfileBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.EnvironmentProfileBase.isConstruct"></a>
 
 ```typescript
 import { EnvironmentProfileBase } from 'cdk-data-zone'
@@ -3125,6 +3261,20 @@ EnvironmentProfileBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.EnvironmentProfileBase.isConstruct.parameter.x"></a>
 
@@ -3344,6 +3494,8 @@ public readonly description: string;
 
 ### FormMetadata <a name="FormMetadata" id="cdk-data-zone.FormMetadata"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IFormMetadata">IFormMetadata</a>
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.FormMetadata.Initializer"></a>
 
 ```typescript
@@ -3427,7 +3579,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.FormMetadata.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.FormMetadata.isConstruct"></a>
 
 ```typescript
 import { FormMetadata } from 'cdk-data-zone'
@@ -3436,6 +3588,20 @@ FormMetadata.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.FormMetadata.isConstruct.parameter.x"></a>
 
@@ -3566,7 +3732,7 @@ public readonly project: Project;
 
 ### FormMetadataBase <a name="FormMetadataBase" id="cdk-data-zone.FormMetadataBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IFormMetadata">IFormMetadata</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IFormMetadata">IFormMetadata</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.FormMetadataBase.Initializer"></a>
 
@@ -3651,7 +3817,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.FormMetadataBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.FormMetadataBase.isConstruct"></a>
 
 ```typescript
 import { FormMetadataBase } from 'cdk-data-zone'
@@ -3660,6 +3826,20 @@ FormMetadataBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.FormMetadataBase.isConstruct.parameter.x"></a>
 
@@ -3779,6 +3959,8 @@ public readonly formRevision: string;
 
 ### Glossary <a name="Glossary" id="cdk-data-zone.Glossary"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IGlossary">IGlossary</a>
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.Glossary.Initializer"></a>
 
 ```typescript
@@ -3875,7 +4057,7 @@ public addGlossaryTerms(terms: GlossaryTermOptions[]): GlossaryTerm[]
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.Glossary.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.Glossary.isConstruct"></a>
 
 ```typescript
 import { Glossary } from 'cdk-data-zone'
@@ -3884,6 +4066,20 @@ Glossary.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.Glossary.isConstruct.parameter.x"></a>
 
@@ -4003,7 +4199,7 @@ public readonly project: Project;
 
 ### GlossaryBase <a name="GlossaryBase" id="cdk-data-zone.GlossaryBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IGlossary">IGlossary</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IGlossary">IGlossary</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.GlossaryBase.Initializer"></a>
 
@@ -4101,7 +4297,7 @@ public addGlossaryTerms(terms: GlossaryTermOptions[]): GlossaryTerm[]
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.GlossaryBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.GlossaryBase.isConstruct"></a>
 
 ```typescript
 import { GlossaryBase } from 'cdk-data-zone'
@@ -4110,6 +4306,20 @@ GlossaryBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.GlossaryBase.isConstruct.parameter.x"></a>
 
@@ -4229,6 +4439,8 @@ public readonly project: Project;
 
 ### GlossaryTerm <a name="GlossaryTerm" id="cdk-data-zone.GlossaryTerm"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IGlossaryTerm">IGlossaryTerm</a>
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.GlossaryTerm.Initializer"></a>
 
 ```typescript
@@ -4312,7 +4524,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.GlossaryTerm.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.GlossaryTerm.isConstruct"></a>
 
 ```typescript
 import { GlossaryTerm } from 'cdk-data-zone'
@@ -4321,6 +4533,20 @@ GlossaryTerm.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.GlossaryTerm.isConstruct.parameter.x"></a>
 
@@ -4451,7 +4677,7 @@ public readonly project: Project;
 
 ### GlossaryTermBase <a name="GlossaryTermBase" id="cdk-data-zone.GlossaryTermBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IGlossaryTerm">IGlossaryTerm</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IGlossaryTerm">IGlossaryTerm</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.GlossaryTermBase.Initializer"></a>
 
@@ -4536,7 +4762,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.GlossaryTermBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.GlossaryTermBase.isConstruct"></a>
 
 ```typescript
 import { GlossaryTermBase } from 'cdk-data-zone'
@@ -4545,6 +4771,20 @@ GlossaryTermBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.GlossaryTermBase.isConstruct.parameter.x"></a>
 
@@ -4652,6 +4892,8 @@ public readonly glossaryTermId: string;
 
 
 ### Project <a name="Project" id="cdk-data-zone.Project"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IProject">IProject</a>, <a href="#cdk-data-zone.IResource">IResource</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.Project.Initializer"></a>
 
@@ -4807,7 +5049,7 @@ public addMember(id: string, options: MemberOptions): void
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.Project.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.Project.isConstruct"></a>
 
 ```typescript
 import { Project } from 'cdk-data-zone'
@@ -4816,6 +5058,20 @@ Project.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.Project.isConstruct.parameter.x"></a>
 
@@ -5000,7 +5256,7 @@ public readonly membership: CfnProjectMembership;
 
 ### ProjectBase <a name="ProjectBase" id="cdk-data-zone.ProjectBase"></a>
 
-- *Implements:* <a href="#cdk-data-zone.IProject">IProject</a>
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, <a href="#cdk-data-zone.IProject">IProject</a>, <a href="#cdk-data-zone.IResource">IResource</a>
 
 #### Initializers <a name="Initializers" id="cdk-data-zone.ProjectBase.Initializer"></a>
 
@@ -5156,7 +5412,7 @@ public addMember(id: string, options: MemberOptions): void
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.ProjectBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.ProjectBase.isConstruct"></a>
 
 ```typescript
 import { ProjectBase } from 'cdk-data-zone'
@@ -5165,6 +5421,20 @@ ProjectBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.ProjectBase.isConstruct.parameter.x"></a>
 
@@ -5327,6 +5597,8 @@ The identifier of a project.
 
 ### ResourceBase <a name="ResourceBase" id="cdk-data-zone.ResourceBase"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource
+
 #### Initializers <a name="Initializers" id="cdk-data-zone.ResourceBase.Initializer"></a>
 
 ```typescript
@@ -5410,7 +5682,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-data-zone.ResourceBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk-data-zone.ResourceBase.isConstruct"></a>
 
 ```typescript
 import { ResourceBase } from 'cdk-data-zone'
@@ -5419,6 +5691,20 @@ ResourceBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="cdk-data-zone.ResourceBase.isConstruct.parameter.x"></a>
 
@@ -6194,7 +6480,7 @@ The name of the Amazon  environment.
 ##### `userParameters`<sup>Optional</sup> <a name="userParameters" id="cdk-data-zone.EnvironmentOptions.property.userParameters"></a>
 
 ```typescript
-public readonly userParameters: IResolvable | IResolvable | EnvironmentParameterProperty[];
+public readonly userParameters: IResolvable | (IResolvable | EnvironmentParameterProperty)[];
 ```
 
 - *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_datazone.CfnEnvironment.EnvironmentParameterProperty[]
@@ -6314,7 +6600,7 @@ The description of the environment profile.
 ##### `userParameters`<sup>Optional</sup> <a name="userParameters" id="cdk-data-zone.EnvironmentProfileProps.property.userParameters"></a>
 
 ```typescript
-public readonly userParameters: IResolvable | IResolvable | EnvironmentParameterProperty[];
+public readonly userParameters: IResolvable | (IResolvable | EnvironmentParameterProperty)[];
 ```
 
 - *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_datazone.CfnEnvironmentProfile.EnvironmentParameterProperty[]
@@ -6481,7 +6767,7 @@ The glossary terms that can be used in this Amazon  environment.
 ##### `userParameters`<sup>Optional</sup> <a name="userParameters" id="cdk-data-zone.EnvironmentProps.property.userParameters"></a>
 
 ```typescript
-public readonly userParameters: IResolvable | IResolvable | EnvironmentParameterProperty[];
+public readonly userParameters: IResolvable | (IResolvable | EnvironmentParameterProperty)[];
 ```
 
 - *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_datazone.CfnEnvironment.EnvironmentParameterProperty[]
